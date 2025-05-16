@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Webpage of the United Corgi Commonwealth</title>
+    
+    <!-- SEO and social sharing metadata -->
+    <meta name="description" content="Official website of the United Corgi Commonwealth, ensuring Life, Liberty, and the Energetic Pursuit of Squirrels.">
+    <meta property="og:title" content="United Corgi Commonwealth">
+    <meta property="og:description" content="The federation of the Empire of Pembroke and the Republic of Cardigan.">
+    <meta property="og:image" content="images/ucc-flag.jpg">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,12 +24,32 @@
         .footer-bg { background-color: #4527A0; }
         .nav-link { @apply px-4 py-2 text-sm font-medium text-gray-700 hover:bg-purple-100 hover:text-purple-700 rounded-md transition-colors; }
         .section-title { @apply text-3xl font-bold mb-8 text-purple-800; }
-        .card { @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex flex-col; }
+        .section-subtitle { @apply text-xl text-purple-600 font-medium mb-4 text-center; }
+        .card { 
+            @apply bg-white p-6 rounded-lg shadow-lg flex flex-col;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover { 
+            @apply shadow-xl;
+            transform: translateY(-5px);
+        }
         .card-content { @apply flex-grow; }
         .btn-primary { @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 ease-in-out; }
         .hero-section { background: linear-gradient(rgba(69,39,160,0.5),rgba(69,39,160,0.5)),url('images/ucc-flag.jpg') no-repeat center center; background-size: cover; }
         .shadow-text { text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
         .map-container { @apply relative w-full max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden; }
+        .featured-section { @apply py-16 md:py-24 bg-purple-50; }
+        
+        /* Animation classes */
+        .section-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -50,14 +79,17 @@
                 <a href="#governance" class="nav-link">Governance</a>
                 <a href="#member-states" class="nav-link">Member States</a>
                 <a href="#explore-corgistan" class="nav-link">Explore Corgistan</a>
+                <a href="#great-games" class="nav-link">Great Games</a>
+                <a href="#religion" class="nav-link">Religion</a>
                 <a href="#economy-currency" class="nav-link">Economy & Currency</a>
+                <a href="#services" class="nav-link">Services</a>
                 <a href="#quiz" class="nav-link">Citizenship Quiz</a>
                 <a href="#mythology" class="nav-link">Mythology</a>
-                <a href="#news" class="nav-link">News & Events</a>
+                <a href="#news" class="nav-link">News</a>
                 <a href="#digital-economy" class="nav-link">Digital Economy</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-purple-700 focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-purple-700 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
@@ -68,10 +100,13 @@
             <a href="#governance" class="block nav-link text-center">Governance</a>
             <a href="#member-states" class="block nav-link text-center">Member States</a>
             <a href="#explore-corgistan" class="block nav-link text-center">Explore Corgistan</a>
+            <a href="#great-games" class="block nav-link text-center">Great Games</a>
+            <a href="#religion" class="block nav-link text-center">Religion</a>
             <a href="#economy-currency" class="block nav-link text-center">Economy & Currency</a>
+            <a href="#services" class="block nav-link text-center">Services</a>
             <a href="#quiz" class="block nav-link text-center">Citizenship Quiz</a>
             <a href="#mythology" class="block nav-link text-center">Mythology</a>
-            <a href="#news" class="block nav-link text-center">News & Events</a>
+            <a href="#news" class="block nav-link text-center">News</a>
             <a href="#digital-economy" class="block nav-link text-center">Digital Economy</a>
             <a href="#contact" class="block nav-link text-center">Contact</a>
         </div>
@@ -89,7 +124,7 @@
 
     <main class="container mx-auto px-6 py-12">
         <!-- About -->
-        <section id="about" class="my-16 scroll-mt-20">
+        <section id="about" class="my-16 scroll-mt-20 section-fade">
             <h2 class="section-title text-center">About the UCC</h2>
             <div class="max-w-3xl mx-auto text-center text-lg">
                 <p class="mb-4">The United Corgi Commonwealth (UCC) is a federation of the <strong class="pembroke-red-orange">Empire of Pembroke</strong> and the <strong class="cardigan-black-gray">Republic of Cardigan</strong>. Founded to secure justice, biscuits, and the blessings of Pawgod/Dawgod for all Corgis.</p>
@@ -98,7 +133,7 @@
         </section>
 
         <!-- Governance -->
-        <section id="governance" class="my-16 scroll-mt-20">
+        <section id="governance" class="my-16 scroll-mt-20 section-fade">
             <h2 class="section-title text-center">Our Governance</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="card">
@@ -107,6 +142,9 @@
                         <p>Senate of 201 Corgis, champions of the Great Games. Two annually elected Consuls—one Pembroke, one Cardigan—lead executive matters.</p>
                         <p class="mt-2 italic">"All power originates from every Corgi, individually and collectively."</p>
                     </div>
+                    <div class="mt-4">
+                        <img src="images/curia-building.jpg" alt="The Curia" class="rounded-lg shadow-md">
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-content">
@@ -114,12 +152,15 @@
                         <p>All Corgis enjoy the rights to bark freely, wag tails, and pursue squirrels. The harshest sanction: exile.</p>
                         <p class="mt-2">Decisions declared by "The bones have been cast" followed by a unified "Woof!"</p>
                     </div>
+                    <div class="mt-4">
+                        <img src="images/constitution.jpg" alt="UCC Constitution" class="rounded-lg shadow-md">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Member States -->
-        <section id="member-states" class="my-16 scroll-mt-20">
+        <section id="member-states" class="my-16 scroll-mt-20 section-fade">
             <h2 class="section-title text-center">Member States</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="card">
@@ -140,36 +181,100 @@
         </section>
 
         <!-- Map -->
-        <section id="explore-corgistan" class="my-16 scroll-mt-20">
+        <section id="explore-corgistan" class="my-16 scroll-mt-20 section-fade">
             <h2 class="section-title text-center">Explore Ile de Corgitagne</h2>
             <div class="map-container my-8">
                 <img src="images/Corgistan%202024-10-29-22-00.jpeg" alt="Map of Corgistan" class="map-image">
             </div>
         </section>
 
-        <!-- Quiz -->
-        <section id="quiz" class="my-16 scroll-mt-20">
-            <h2 class="section-title text-center">Citizenship Quiz</h2>
-            <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                <!-- Quiz markup as before -->
+        <!-- Great Corgi Games section -->
+        <section id="great-games" class="my-16 scroll-mt-20 featured-section rounded-lg section-fade">
+          <h2 class="section-title text-center">The Great Corgi Games</h2>
+          <p class="section-subtitle">Where Champions Are Made</p>
+          
+          <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="card bg-white">
+              <img src="images/herding-competition.jpg" alt="Herding Competition" class="rounded-t-lg h-48 w-full object-cover">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Herding Competition</h3>
+                <p>The ultimate test of speed, strategy and sheep coordination.</p>
+                <p class="mt-4 text-sm text-purple-600">Next event: Spring Games</p>
+              </div>
             </div>
+            
+            <div class="card bg-white">
+              <img src="images/snout-ball.jpg" alt="Obedience Trials" class="rounded-t-lg h-48 w-full object-cover">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Obedience Trials</h3>
+                <p>Showcasing discipline and training that would impress any human.</p>
+                <p class="mt-4 text-sm text-purple-600">Current champion: Sir Woofington</p>
+              </div>
+            </div>
+            
+            <div class="card bg-white">
+              <img src="images/best-inshow.jpg" alt="Best in Show" class="rounded-t-lg h-48 w-full object-cover">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Best in Show</h3>
+                <p>The pinnacle of Corgi excellence, judged by the most distinguished panel.</p>
+                <p class="mt-4 text-sm text-purple-600">Prize: Senate eligibility</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-8">
+            <a href="#" class="btn-primary">View Complete Games Schedule</a>
+          </div>
         </section>
 
-        <!-- Mythology -->
-        <section id="mythology" class="my-16 scroll-mt-20 bg-gray-50 p-8 rounded-lg">
-            <h2 class="section-title text-center">Mythology of Paw & Daw</h2>
-            <ul class="max-w-2xl mx-auto list-disc list-inside space-y-2 text-gray-700">
-                <li>The Bone Dream</li>
-                <li>Daw & Bastet’s Divine Misadventure</li>
-                <li>Yahweh’s Grand Plan</li>
-                <li>The Divine Championship</li>
-                <li>Prometheus & the Gift of Fire</li>
-            </ul>
+        <!-- Religious section -->
+        <section id="religion" class="my-16 scroll-mt-20 section-fade">
+          <h2 class="section-title text-center">Temple of Pawgod/Dawgod</h2>
+          
+          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="card">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-yellow-600 text-xl">P</span>
+                </div>
+                <h3 class="text-xl font-bold">Teachings of Paw</h3>
+              </div>
+              <ul class="space-y-2 text-gray-700">
+                <li>"Think before you act—the outcome might still be suboptimal, but with time you will learn to think"</li>
+                <li>"A biscuit or a cudgel awaits around every corner. Make sure someone else discovers which for you"</li>
+                <li>"Life is short; do not spend it planning future"</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-yellow-600 text-xl">D</span>
+                </div>
+                <h3 class="text-xl font-bold">Teachings of Daw</h3>
+              </div>
+              <ul class="space-y-2 text-gray-700">
+                <li>"Just go for it, in retrospect you will regret things you haven't done"</li>
+                <li>"If it's already broken, render it beyond repair—someone is bound to replace it"</li>
+                <li>"Every situation is an opportunity, sometimes for gain, sometimes for pain"</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-8 max-w-3xl mx-auto text-center text-gray-600">
+            <div class="flex justify-center mb-4">
+              <img src="images/pawgod-dawgod.jpg" alt="Temple of Pawgod/Dawgod" class="rounded-lg shadow-lg max-w-md">
+            </div>
+            <p class="italic">Whether you follow Pawgod (Cardigan tradition) or Dawgod (Pembroke tradition), all are welcome at our temples. Services daily at dawn and dusk.</p>
+          </div>
         </section>
 
         <!-- Central Bank & Currency -->
-        <section id="economy-currency" class="my-16 scroll-mt-20 bg-white p-8 rounded-lg">
+        <section id="economy-currency" class="my-16 scroll-mt-20 bg-white p-8 rounded-lg section-fade">
             <h2 class="section-title text-center">Economy & Currency</h2>
+            <div class="flex justify-center mb-6">
+                <img src="images/central-bank.jpg" alt="Central Bank of UCC" class="rounded shadow-lg max-w-md">
+            </div>
             <div class="grid md:grid-cols-3 gap-6">
                 <img src="images/4%20Pawnd%20note%20of%20UCC.png" alt="4 Pawnd" class="rounded shadow">
                 <img src="images/IMG-20241017-WA0003.jpg" alt="32 Pawnd" class="rounded shadow">
@@ -177,11 +282,103 @@
                 <img src="images/IMG-20241017-WA0002.jpg" alt="64 Pawnd" class="rounded shadow">
                 <img src="images/IMG-20241017-WA0005.jpg" alt="16 Pawnd" class="rounded shadow">
             </div>
-            <p class="mt-4 text-center text-gray-600">The Pawnd (f>) uses a hybrid quin-decimal system: 1 Pawnd = 96 Pawnee. Click notes to enlarge.</p>
+            <p class="mt-4 text-center text-gray-600">The Pawnd (f>) uses a hybrid quin-decimal system: 1 Pawnd = 96 Pawnce. Click notes to enlarge.</p>
+        </section>
+
+        <!-- Commonwealth Services Portal -->
+        <section id="services" class="my-16 scroll-mt-20 section-fade">
+          <h2 class="section-title text-center">Commonwealth Services</h2>
+          
+          <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="card">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3">Citizen Services</h3>
+                <ul class="space-y-2 text-gray-700">
+                  <li>Pawsport Applications</li>
+                  <li>Birth/Death Certificates</li>
+                  <li>Pack Registration</li>
+                  <li>Herding License</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3">Business Services</h3>
+                <ul class="space-y-2 text-gray-700">
+                  <li>Trading Permits</li>
+                  <li>Treat Import Licenses</li>
+                  <li>Gate Street Exchange Listing</li>
+                  <li>Tax Registration</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3">Emergency Services</h3>
+                <ul class="space-y-2 text-gray-700">
+                  <li>General Emergency: 112</li>
+                  <li>Medical: 113</li>
+                  <li>Tourism: 114</li>
+                  <li>Embassy Services: 118</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex justify-center mt-8">
+            <img src="images/ucc-pawsport.jpg" alt="UCC Pawsport" class="rounded-lg shadow-lg max-w-xs">
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quiz" class="my-16 scroll-mt-20 section-fade">
+          <h2 class="section-title text-center">Citizenship Quiz</h2>
+          <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <div id="quiz-container">
+              <p class="text-center mb-4">Test your knowledge of the United Corgi Commonwealth!</p>
+              <div id="quiz-question" class="mb-4"></div>
+              <div id="quiz-options" class="space-y-2 mb-6"></div>
+              <div class="flex justify-between">
+                <button id="quiz-prev" class="btn-primary opacity-50" disabled>Previous</button>
+                <button id="quiz-next" class="btn-primary">Next</button>
+              </div>
+              <div id="quiz-progress" class="mt-4 text-center text-sm text-gray-500"></div>
+            </div>
+            <div id="quiz-results" class="hidden">
+              <h3 class="text-xl font-bold text-center mb-4">Quiz Results</h3>
+              <p id="quiz-score" class="text-center text-2xl font-bold mb-4"></p>
+              <div id="quiz-message" class="text-center mb-6"></div>
+              <div class="text-center">
+                <button id="quiz-restart" class="btn-primary">Take Quiz Again</button>
+                <a id="quiz-certificate" class="hidden btn-primary ml-2" href="#" target="_blank">Download Certificate</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex justify-center mt-8 hidden" id="certificate-preview">
+            <img src="images/cert-citizenship.jpg" alt="UCC Citizenship Certificate" class="rounded-lg shadow-lg max-w-md">
+          </div>
+        </section>
+
+        <!-- Mythology -->
+        <section id="mythology" class="my-16 scroll-mt-20 bg-gray-50 p-8 rounded-lg section-fade">
+            <h2 class="section-title text-center">Mythology of Paw & Daw</h2>
+            <div class="flex justify-center mb-6">
+                <img src="images/bone-of-contention.jpg" alt="The Bone of Contention" class="rounded shadow-lg max-w-md">
+            </div>
+            <ul class="max-w-2xl mx-auto list-disc list-inside space-y-2 text-gray-700">
+                <li>The Bone Dream</li>
+                <li>Daw & Bastet's Divine Misadventure</li>
+                <li>Cousin Fenrir's Invitation</li>
+                <li>The Divine Championship</li>
+                <li>Prometheus & the Gift of Fire</li>
+            </ul>
         </section>
 
         <!-- News & Events -->
-        <section id="news" class="my-16 scroll-mt-20 bg-purple-50 p-8 rounded-lg">
+        <section id="news" class="my-16 scroll-mt-20 bg-purple-50 p-8 rounded-lg section-fade">
             <h2 class="section-title text-center">Claws & Collars Newsfeed</h2>
             <div class="flex justify-center mb-6">
                 <img src="images/news%20anchor.JPG" alt="News Anchor" class="rounded shadow-lg max-w-md">
@@ -194,7 +391,7 @@
         </section>
 
         <!-- Digital Economy -->
-        <section id="digital-economy" class="my-16 scroll-mt-20 bg-gray-100 p-8 rounded-lg">
+        <section id="digital-economy" class="my-16 scroll-mt-20 bg-gray-100 p-8 rounded-lg section-fade">
             <h2 class="section-title text-center">Digital Economy</h2>
             <div class="flex justify-center">
                 <img src="images/paw%20card%202.webp" alt="PawCard" class="rounded-lg shadow-lg w-64">
@@ -203,7 +400,7 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="my-16 scroll-mt-20 text-center">
+        <section id="contact" class="my-16 scroll-mt-20 text-center section-fade">
             <h2 class="section-title">Get In Touch</h2>
             <a href="mailto:consular.affairs@ucc.gov.corgi" class="btn-primary">Email Consular Affairs</a>
         </section>
@@ -215,9 +412,16 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
         const btn = document.getElementById('mobile-menu-button');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        btn.addEventListener('click', function() {
+            menu.classList.toggle('hidden');
+            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !expanded);
+        });
+        
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
@@ -228,6 +432,201 @@
                 }
             });
         });
+        
+        // Section fade animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section-fade');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+        
+        // Interactive map markers
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapImage = document.querySelector('.map-image');
+            if (!mapImage) return;
+            
+            const landmarks = [
+                { name: 'Concorgia', x: 50, y: 35, description: 'Capital of the UCC' },
+                { name: 'Mount Elizabeth', x: 75, y: 60, description: 'Sacred mountain of the Pembrokes' },
+                { name: 'Cardiganopollis', x: 25, y: 70, description: 'Circular city of the Republic' },
+                { name: 'Temple of Pawgod/Dawgod', x: 50, y: 50, description: 'Central place of worship' }
+            ];
+            
+            // Create container for the map
+            const mapContainer = mapImage.parentElement;
+            mapContainer.style.position = 'relative';
+            
+            // Add markers
+            landmarks.forEach(landmark => {
+                const marker = document.createElement('div');
+                marker.className = 'absolute w-4 h-4 bg-purple-600 rounded-full cursor-pointer transform -translate-x-2 -translate-y-2 hover:scale-150 transition-transform';
+                marker.style.left = `${landmark.x}%`;
+                marker.style.top = `${landmark.y}%`;
+                
+                // Create tooltip
+                const tooltip = document.createElement('div');
+                tooltip.className = 'absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-white shadow-lg rounded px-3 py-2 text-sm w-max opacity-0 pointer-events-none transition-opacity';
+                tooltip.innerHTML = `<strong>${landmark.name}</strong><br>${landmark.description}`;
+                
+                marker.addEventListener('mouseenter', () => {
+                    tooltip.classList.remove('opacity-0');
+                    tooltip.classList.add('opacity-100');
+                });
+                
+                marker.addEventListener('mouseleave', () => {
+                    tooltip.classList.remove('opacity-100');
+                    tooltip.classList.add('opacity-0');
+                });
+                
+                marker.appendChild(tooltip);
+                mapContainer.appendChild(marker);
+            });
+        });
+        
+        // Quiz functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizContainer = document.getElementById('quiz-container');
+            if (!quizContainer) return;
+            
+            const quizQuestions = [
+                {
+                    question: "What is the motto of the United Corgi Commonwealth?",
+                    options: ["Woof et Orbi", "Corgito Ergo Sum", "Barkus Maximus", "Canis Lupus"],
+                    correct: 1
+                },
+                {
+                    question: "How many members are in the UCC Senate?",
+                    options: ["100", "201", "50", "150"],
+                    correct: 1
+                },
+                {
+                    question: "What is the UCC currency called?",
+                    options: ["Corgi Dollar", "Biscuit", "Pawnd", "Tail"],
+                    correct: 2
+                },
+                {
+                    question: "Who are the mythological figures central to UCC religion?",
+                    options: ["Zeus and Hera", "Paw and Daw", "Romulus and Remus", "Thor and Loki"],
+                    correct: 1
+                },
+                {
+                    question: "How many Pawnce are in a Pawnd?",
+                    options: ["100", "10", "96", "64"],
+                    correct: 2
+                }
+            ];
+            
+            let currentQuestion = 0;
+            let score = 0;
+            let userAnswers = [];
+            
+            const resultsContainer = document.getElementById('quiz-results');
+            const questionEl = document.getElementById('quiz-question');
+            const optionsEl = document.getElementById('quiz-options');
+            const prevBtn = document.getElementById('quiz-prev');
+            const nextBtn = document.getElementById('quiz-next');
+            const progressEl = document.getElementById('quiz-progress');
+            const scoreEl = document.getElementById('quiz-score');
+            const messageEl = document.getElementById('quiz-message');
+            const restartBtn = document.getElementById('quiz-restart');
+            const certificateBtn = document.getElementById('quiz-certificate');
+            
+            function showQuestion(index) {
+                const question = quizQuestions[index];
+                questionEl.textContent = `${index + 1}. ${question.question}`;
+                
+                optionsEl.innerHTML = '';
+                question.options.forEach((option, i) => {
+                    const label = document.createElement('label');
+                    label.className = 'block p-3 border rounded hover:bg-purple-50 cursor-pointer';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = 'quiz';
+                    input.value = i;
+                    input.className = 'mr-2';
+                    if (userAnswers[index] === i) {
+                        input.checked = true;
+                    }
+                    
+                    label.appendChild(input);
+                    label.appendChild(document.createTextNode(option));
+                    optionsEl.appendChild(label);
+                });
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.textContent = index === quizQuestions.length - 1 ? 'Finish' : 'Next';
+                progressEl.textContent = `Question ${index + 1} of ${quizQuestions.length}`;
+            }
+            
+            function showResults() {
+                quizContainer.classList.add('hidden');
+                resultsContainer.classList.remove('hidden');
+                
+                score = userAnswers.reduce((total, answer, index) => {
+                    return total + (answer === quizQuestions[index].correct ? 1 : 0);
+                }, 0);
+                
+                const percentage = Math.round((score / quizQuestions.length) * 100);
+                scoreEl.textContent = `${score} out of ${quizQuestions.length} (${percentage}%)`;
+                
+                if (percentage >= 80) {
+                    messageEl.innerHTML = "Congratulations! You've earned honorary UCC citizenship. Your certificate is ready!";
+                    certificateBtn.classList.remove('hidden');
+                } else if (percentage >= 60) {
+                    messageEl.innerHTML = "Not bad! You know quite a bit about the UCC. Study a bit more for full citizenship!";
+                } else {
+                    messageEl.innerHTML = "Keep learning about the UCC! We recommend visiting the Concorgia Museum.";
+                }
+            }
+            
+            nextBtn.addEventListener('click', () => {
+                const selected = document.querySelector('input[name="quiz"]:checked');
+                if (selected) {
+                    userAnswers[currentQuestion] = parseInt(selected.value);
+                }
+                
+                if (currentQuestion < quizQuestions.length - 1) {
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                } else {
+                    showResults();
+                }
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestion > 0) {
+                    currentQuestion--;
+                    showQuestion(currentQuestion);
+                }
+            });
+            
+            restartBtn.addEventListener('click', () => {
+                currentQuestion = 0;
+                userAnswers = [];
+                resultsContainer.classList.add('hidden');
+                quizContainer.classList.remove('hidden');
+                showQuestion(0);
+            });
+            
+                            certificateBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('certificate-preview').classList.remove('hidden');
+            });
+            
+            // Initialize the quiz
+            showQuestion(0);
+        });
     </script>
 </body>
 </html>
+                
