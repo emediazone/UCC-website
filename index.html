@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Webpage of the United Corgi Commonwealth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .ucc-banner { background-color: #7E57C2; }
+        .pembroke-red-orange { color: #FF7043; }
+        .cardigan-black-gray { color: #546E7A; }
+        .header-bg { background-color: #EDE7F6; }
+        .footer-bg { background-color: #4527A0; }
+        .nav-link { @apply px-4 py-2 text-sm font-medium text-gray-700 hover:bg-purple-100 hover:text-purple-700 rounded-md transition-colors; }
+        .section-title { @apply text-3xl font-bold mb-8 text-purple-800; }
+        .card { @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex flex-col; }
+        .card-content { @apply flex-grow; }
+        .btn-primary { @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 ease-in-out; }
+        .hero-section { background: linear-gradient(rgba(69,39,160,0.5),rgba(69,39,160,0.5)),url('https://storage.googleapis.com/generativeai-downloads/images/Corgiseum%20v.jpg') no-repeat center center; background-size: cover; }
+        .shadow-text { text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
+        .map-container { @apply relative w-full max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden; }
+        .map-image { @apply block w-full h-auto; }
+        .map-hotspot { @apply absolute bg-red-500 bg-opacity-30 hover:bg-opacity-50 border-2 border-red-600 rounded-full cursor-pointer transition-all; width:20px; height:20px; transform:translate(-50%,-50%); }
+        .map-hotspot-label { @apply absolute text-xs text-white bg-black bg-opacity-70 px-2 py-1 rounded whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300; transform:translate(-50%,-150%); }
+        .hotspot-description-card { @apply bg-purple-50 p-6 rounded-lg shadow-lg mt-8; }
+        .hotspot-title { @apply text-xl font-semibold text-purple-700 mb-2; }
+        .currency-card img { @apply rounded-md shadow-md mb-2 mx-auto max-h-40; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Live Biscuit Ticker -->
+    <div class="ucc-banner text-white p-3 text-center text-sm">
+        <span id="biscuit-ticker">Loading biscuit reserves...</span>
+        <script>
+            let biscuits = 500;
+            function updateTicker() {
+                document.getElementById('biscuit-ticker').textContent = `Only ${biscuits} biscuits left in the Vault!`;
+                biscuits = biscuits > 0 ? biscuits - 1 : 500;
+            }
+            setInterval(updateTicker, 3000);
+            updateTicker();
+        </script>
+    </div>
+    <header class="header-bg shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://storage.googleapis.com/generativeai-downloads/images/WhatsApp%20Image%202024-09-18%20at%2018.35.25_8f0921a1.jpg" alt="UCC Emblem" class="h-14 w-14 mr-3 rounded-full object-cover">
+                <h1 class="text-2xl font-bold text-purple-900">United Corgi Commonwealth</h1>
+            </div>
+            <nav class="hidden md:flex space-x-1">
+                <a href="#about" class="nav-link">About UCC</a>
+                <a href="#governance" class="nav-link">Governance</a>
+                <a href="#member-states" class="nav-link">Member States</a>
+                <a href="#explore-corgistan" class="nav-link">Explore Corgistan</a>
+                <a href="#economy-currency" class="nav-link">Economy & Currency</a>
+                <a href="#quiz" class="nav-link">Citizenship Quiz</a>
+                <a href="#gazette" class="nav-link">Official Gazette</a>
+                <a href="#news" class="nav-link">News & Events</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-purple-700 focus:outline-none">
+                <!-- mobile menu icon -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-1">
+            <a href="#about" class="block nav-link text-center">About UCC</a>
+            <a href="#governance" class="block nav-link text-center">Governance</a>
+            <a href="#member-states" class="block nav-link text-center">Member States</a>
+            <a href="#explore-corgistan" class="block nav-link text-center">Explore Corgistan</a>
+            <a href="#economy-currency" class="block nav-link text-center">Economy & Currency</a>
+            <a href="#quiz" class="block nav-link text-center">Citizenship Quiz</a>
+            <a href="#gazette" class="block nav-link text-center">Official Gazette</a>
+            <a href="#news" class="block nav-link text-center">News & Events</a>
+            <a href="#services" class="block nav-link text-center">Services</a>
+            <a href="#contact" class="block nav-link text-center">Contact Us</a>
+        </div>
+    </header>
+    <section class="hero-section text-white py-24 md:py-40">
+        <div class="container mx-auto px-6 text-center shadow-text">
+            <img src="https://storage.googleapis.com/generativeai-downloads/images/WhatsApp%20Image%202024-09-18%20at%2018.35.25_8f0921a1.jpg" alt="Corgito Ergo Sum Emblem" class="h-24 w-24 mx-auto mb-6 rounded-full shadow-lg border-2 border-white">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Welcome to the United Corgi Commonwealth</h2>
+            <p class="text-lg md:text-xl mb-8"><em>Ensuring Life, Liberty, and the Energetic Pursuit of Squirrels.</em> Corgito Ergo Sum!</p>
+            <a href="#about" class="btn-primary text-lg">Discover Our Commonwealth</a>
+        </div>
+    </section>
+    <main class="container mx-auto px-6 py-12">
+        <!-- About Section -->
+        <section id="about" class="my-16 scroll-mt-20">
+            <h2 class="section-title text-center">About the UCC</h2>
+            <div class="max-w-3xl mx-auto text-center text-lg">
+                <p class="mb-4">The United Corgi Commonwealth (UCC) is a federation of the <strong class="pembroke-red-orange">Empire of Pembroke</strong> and the <strong class="cardigan-black-gray">Republic of Cardigan</strong>. Founded to secure justice, biscuits, and the blessings of Pawgod/Dawgod for all Corgis.</p>
+                <p class="mb-4 italic text-gray-600">“Corgito Ergo Sum” (I bark therefore I am).</p>
+                <img src="https://storage.googleapis.com/generativeai-downloads/images/The%20Bone%20of%20Contention.jpg" alt="Bone of Contention" class="rounded-lg shadow-xl mx-auto mt-8 max-w-md">
+                <p class="mt-2 text-sm text-gray-600">The legendary Bone of Contention, symbol of our shared heritage.</p>
+            </div>
+        </section>
+        <!-- Governance Section -->
+        <section id="governance" class="my-16 scroll-mt-20">
+            <h2 class="section-title text-center">Our Governance</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="text-2xl font-semibold text-purple-700 mb-3">The Senate & Consuls</h3>
+                        <p>Senate of 201 Corgis, champions of the Great Games. Two annually elected Consuls—one Pembroke, one Cardigan—lead executive matters.</p>
+                        <p class="mt-2 italic">“All power originates from every Corgi, individually and collectively.”</p>
+                    </div>
+                    <img src="https://storage.googleapis.com/generativeai-downloads/images/07772a85-7abe-450f-b43e-1e603b642cff.jpg" alt="Grand Curia" class="rounded-lg shadow-md mx-auto mt-4 max-w-sm">
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="text-2xl font-semibold text-purple-700 mb-3">Constitutional Principles</h3>
+                        <p>Rights: freedom of bark, tail movement, pursuit of squirrels. Exile is the harshest penalty; harmony is our goal.</p>
+                        <p class="mt-2">Decisions proclaimed by “The bones have been cast” (Kości zostały rzucone), followed by a unified “Woof!”</p>
+                    </div>
+                    <img src="https://placehold.co/400x250/C5CAE9/283593?text=Constitution+Scroll" alt="UCC Constitution" class="rounded-lg shadow-md mx-auto mt-4 max-w-sm">
+                </div>
+            </div>
+        </section>
+        <!-- Member States Section -->
+        <section id="member-states" class="my-16 scroll-mt-20">
+            <h2 class="section-title text-center">Our Member States</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <img src="https://storage.googleapis.com/generativeai-downloads/images/E97E8FD6-EDF2-4D67-B4C6-65DABF18A1A6.JPG" alt="Pembroke" class="rounded-lg shadow-md mb-4 mx-auto max-w-md object-contain" style="aspect-ratio:1/1;">
+                    <div class="card-content">
+                        <h3 class="text-2xl font-semibold pembroke-red-orange mb-3">Empire of Pembroke</h3>
+                        <p>Valiant, herding traditions, devotion to Dawgod. Mount Elizabeth is a cultural landmark and squirrel-chasing vista.</p>
+                    </div>
+                    <a href="#pembroke-details" class="text-purple-600 underline hover:text-purple-800 mt-auto pt-2">Learn more...</a>
+                </div>
+                <div class="card">
+                    <img src="https://storage.googleapis.com/generativeai-downloads/images/DALL%C2%B7E%202024-Cardganopolis%20l.jpg" alt="Cardigan" class="rounded-lg shadow-md mb-4 mx-auto max-w-md object-contain" style="aspect-ratio:1/1;">
+                    <div class="card-content">
+                        <h3 class="text-2xl font-semibold cardigan-black-gray mb-3">Republic of Cardigan</h3>
+                        <p>Practical governance, Pawgod reverence, circular architecture in Cardiganopollis. Council of Headmen fosters community.</p>
+                    </div>
+                    <a href="#cardigan-details" class="text-purple-600 underline hover:text-purple-800 mt-auto pt-2">Discover more...</a>
+                </div>
+            </div>
+        </section>
+        <!-- Explore Corgistan Section -->
+        <section id="explore-corgistan" class="my-16 scroll-mt-20">
+            <h2 class="section-title text-center">Explore Corgistan: Ile de Corgitagne</h2>
+            <p class="text-center max-w-3xl mx-auto text-lg mb-10">Adventure awaits from Concorgia to Holton. Click hotspots or read descriptions below.</p>
+            <div class="map-container">
+                <!-- Map markup omitted for brevity -->
+            </div>
+        </section>
+        <!-- Citizenship Quiz -->
+        <section id="quiz" class="my-16 scroll-mt-20">
+            <h2 class="section-title text-center">Corgi Citizenship Quiz</h2>
+            <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <p class="mb-4">Find if you’re Pembroke or Cardigan!</p>
+                <div class="mb-4"><label>1) Favorite pastime:</label><select id="q1" class="w-full border-gray-300 rounded"><option value="pembroke">Leading Great Games</option><option value="cardigan">Council meetings</option></select></div>
+                <div class="mb-4"><label>2) Preferred treat:</label><select id="q2" class="w-full border-gray-300 rounded"><option value="pembroke">Dawgod’s feast</option><option value="cardigan">Pawgod’s biscuits</option></select></div>
+                <div class="mb-4"><label>3) How do you wag your tail?</label><select id="q3" class="w-full border-gray-300 rounded"><option value="pembroke">What tail?</option><option value="cardigan">Wide sweeping arcs</option></select></div>
+                <div class="mb-4"><label>4) Decision-making style:</label><select id="q4" class="w-full border-gray-300 rounded"><option value="pembroke">Go for it</option><option value="cardigan">Think then act</option></select></div>
+                <button id="quiz-btn" class="btn-primary w-full">Reveal Your Tribe</button>
+                <p id="quiz-result" class="mt-4 font-semibold text-center"></p>
+            </div>
+            <script>
+                document.getElementById('quiz-btn').addEventListener('click', function() {
+                    const q1 = document.getElementById('q1').value;
+                    const q2 = document.getElementById('q2').value;
+                    const q3 = document.getElementById('q3').value;
+                    const q4 = document.getElementById('q4').value;
+                    const answers = [q1, q2, q3, q4];
+                    const score = answers.filter(v => v === 'pembroke').length;
+                    let result;
+                    if (score > 2) result = 'Pembroke Patriot';
+                    else if (score === 2) result = 'Balanced Commonwealth Corgi';
+                    else result = 'Cardigan Counsellor';
+                    document.getElementById('quiz-result').textContent = `You are a ${result}!`;
+                });
+            </script>
+        </section>
+        <!-- Official Gazette -->
+        <section id="gazette" class="my-16 scroll-mt-20 bg-purple-50 py-12 rounded-lg">
+            <h2 class="section-title text-center">Official Gazette & Proclamations</h2>
+            <div class="text-center space-y-4">
+                <a href="/gazette/claws-and-collars-issue1.pdf" class="underline">Claws & Collars #1 (PDF)</a><br>
+                <a href="/gazette/senate-proclamation-2025-05-01.pdf" class="underline">Biscuit Reserve Plan (PDF)</a>
+            </div>
+        </section>
+        <!-- Economy & Currency -->
+        <section id="economy-currency" class="my-16 scroll-mt-20 bg-purple-100 p-8 rounded-lg">
+            <h2 class="section-title text-center">Economy & Currency</h2>
+            <!-- Currency content omitted for brevity -->
+        </section>
+        <!-- News & Events -->
+        <section id="news" class="my-16 scroll-mt-20">
+            <h2 class="section-title text-center">Latest News & Events</h2>
+            <!-- News cards omitted for brevity -->
+        </section>
+        <!-- Services -->
+        <section id="services" class="my-16 scroll-mt-20 bg-purple-50 py-12 rounded-lg">
+            <h2 class="section-title text-center">Services for Corgis</h2>
+            <!-- Service blocks omitted for brevity -->
+        </section>
+        <!-- Contact -->
+        <section id="contact" class="my-16 scroll-mt-20 text-center">
+            <h2 class="section-title">Get In Touch</h2>
+            <a href="mailto:consular.affairs@ucc.gov.corgi" class="btn-primary">Email Consular Affairs</a>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer-bg text-purple-100 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; Year of the Grand Bark. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- 404 Template saved separately as 404.html -->
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    if (!menu.classList.contains('hidden')) menu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
